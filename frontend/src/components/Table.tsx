@@ -2,8 +2,8 @@ export const Table = ({
   thead,
   tbody,
 }: {
-  thead: [string];
-  tbody: [[string]];
+  thead: string[];
+  tbody: (string | number)[][];
 }) => {
   return (
     <>
