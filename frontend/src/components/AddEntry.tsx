@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AddEntranceStyle = styled.main`
+const AddEntryStyle = styled.main`
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -25,9 +25,9 @@ const AddEntranceStyle = styled.main`
   }
 `;
 
-export const AddEntrance = () => {
+export const AddEntry = () => {
   return (
-    <AddEntranceStyle>
+    <AddEntryStyle>
       <h1>Agregar Entrada</h1>
       <label htmlFor="">Valor:</label>
       <input type="number" name="" id="" />
@@ -41,6 +41,6 @@ export const AddEntrance = () => {
         <option value="">Ingreso</option>
       </select>
       <button>Guardar</button>
-    </AddEntranceStyle>
+    </AddEntryStyle>
   );
 };
