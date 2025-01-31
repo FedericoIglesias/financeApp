@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AddEntry } from "./components/AddEntry";
+import { AddEntry } from "./pages/AddEntry";
 import { useState } from "react";
 
 const Body = styled.body`
