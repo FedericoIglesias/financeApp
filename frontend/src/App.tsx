@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { AddEntry } from "./pages/AddEntry";
 import { useState } from "react";
 import { ExpenseTable } from "./pages/ExpenseTable";
+import { Balance } from "./pages/Balance";
 
 const Body = styled.body`
   background-color: #f1f1f1;
@@ -34,10 +35,12 @@ export function App() {
         <ul onClick={() => setComponent("AddEntry")}>Agregar Entrada</ul>
         <ul onClick={() => setComponent("expenseTable")}>Tabla Gastos</ul>
         <ul onClick={() => setComponent("incomeTable")}>Tabla Ingesos</ul>
+        <ul onClick={() => setComponent("Balance")}>Balance</ul>
       </Aside>
       {component === "AddEntry" ? <AddEntry /> : null}
       {component === "expenseTable" ? <ExpenseTable /> : null}
       {component === "incomeTable" ? <h1>Tabla Ingresos</h1> : null}
+      {component === "Balance" ? <Balance /> : null}
       {component === "" ? (
         <h1 style={{ padding: "20px", textAlign: "center" }}>Bienvenido</h1>
       ) : null}
