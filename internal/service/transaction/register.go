@@ -1,11 +1,11 @@
 package transactionService
 
-import models "financeApp/internal/model"
+import "financeApp/internal/model"
 
-func (s Service) RegisterTr(transaction *models.Transaction) error {
-	err := s.Tr
+func (s *Service) RegisterTr(transaction *model.Transaction) error {
+	err := s.TransactionRepository.Register(transaction)
 	if err != nil {
-		// return err
+		return err
 	}
 	return nil
 }
