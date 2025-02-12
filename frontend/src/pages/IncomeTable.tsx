@@ -41,14 +41,14 @@ const IncomeTableStyle = styled.main`
   }
 `;
 
-let listTrasactions: model.Transaction[];
-ReadAllIncomes().then((res) => {
-  console.log(res);
-  listTrasactions = res;
-});
+let listTrasactions: model.Transaction[] = [];
 
 export const IncomeTable = () => {
-  useEffect(() => {}, [listTrasactions]);
+  useEffect(() => {
+    ReadAllIncomes().then((res) => {
+      listTrasactions = res;
+    });
+  }, [listTrasactions]);
   return (
     <IncomeTableStyle>
       <h1>Tabla Ingresos</h1>

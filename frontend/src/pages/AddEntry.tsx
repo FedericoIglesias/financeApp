@@ -39,6 +39,17 @@ export const AddEntry = () => {
 
   const saveTransacion = async () => {
     RegisterTransaction(transaction);
+    setTransaction({
+      amount: "",
+      type: "",
+      date: "",
+      description: "",
+      id: new Date().getTime().toString(),
+    });
+    (document.getElementById("amount") as HTMLInputElement).value = "";
+    (document.getElementById("description") as HTMLInputElement).value = "";
+    (document.getElementById("date") as HTMLInputElement).value = "";
+    (document.getElementById("selectType") as HTMLSelectElement).value = "";
   };
 
   return (
@@ -48,16 +59,16 @@ export const AddEntry = () => {
       <input
         type="number"
         name=""
-        id=""
+        id="amount"
         onChange={(e) => {
           setTransaction({ ...transaction, amount: e.target.value });
         }}
       />
-      <label htmlFor="">Description:</label>
+      <label htmlFor="">Descripción:</label>
       <input
         type="text"
         name=""
-        id=""
+        id="description"
         onChange={(e) =>
           setTransaction({ ...transaction, description: e.target.value })
         }
@@ -66,7 +77,7 @@ export const AddEntry = () => {
       <input
         type="date"
         name=""
-        id=""
+        id="date"
         onChange={(e) =>
           setTransaction({
             ...transaction,
@@ -76,7 +87,7 @@ export const AddEntry = () => {
       />
       <select
         name=""
-        id=""
+        id="selectType"
         onChange={(e) =>
           setTransaction({
             ...transaction,

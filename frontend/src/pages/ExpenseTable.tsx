@@ -41,11 +41,11 @@ const ExpenseTableStyle = styled.main`
 `;
 
 let listTransactions: model.Transaction[] = [];
-ReadAllExpenses().then((res) => {
-  listTransactions = res;
-});
 
 export const ExpenseTable = () => {
+  ReadAllExpenses().then((res) => {
+    listTransactions = res;
+  });
   return (
     <ExpenseTableStyle>
       <h1>Tabla Gastos</h1>
