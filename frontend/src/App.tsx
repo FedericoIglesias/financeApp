@@ -3,6 +3,7 @@ import { AddEntry } from "./pages/AddEntry";
 import { useState } from "react";
 import { ExpenseTable } from "./pages/ExpenseTable";
 import { Balance } from "./pages/Balance";
+import { IncomeTable } from "./pages/IncomeTable";
 
 const Body = styled.body`
   background-color: #f1f1f1;
@@ -27,7 +28,7 @@ const Aside = styled.aside`
   }
 `;
 
-export function App() {
+export function App () {
   const [component, setComponent] = useState("");
   return (
     <Body>
@@ -39,7 +40,7 @@ export function App() {
       </Aside>
       {component === "AddEntry" ? <AddEntry /> : null}
       {component === "expenseTable" ? <ExpenseTable /> : null}
-      {component === "incomeTable" ? <h1>Tabla Ingresos</h1> : null}
+      {component === "incomeTable" ? <IncomeTable /> : null}
       {component === "Balance" ? <Balance /> : null}
       {component === "" ? (
         <h1 style={{ padding: "20px", textAlign: "center" }}>Bienvenido</h1>

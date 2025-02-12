@@ -1,26 +1,34 @@
+import { model } from "../../wailsjs/go/models";
+
 export const Table = ({
-  thead,
-  tbody,
+  listTransactions,
 }: {
-  thead: string[];
-  tbody: (string | number)[][];
+  listTransactions: model.Transaction[];
 }) => {
+  if (listTransactions.length == 0) {
+    return <h1>There are no transactions</h1>;
+  }
+
   return (
     <>
       <table>
         <thead>
-          <tr>
-            {thead.map((th, index) => (
-              <th key={index}>{th}</th>
-            ))}
-          </tr>
+          {listTransactions?.map((tr, index) => (
+            <tr key={index}>
+              {Object.entries(tr).map(([key]) =>
+                key === "type" || key === "id" ? null : <td key={key}>{key}</td>
+              )}
+            </tr>
+          ))}
         </thead>
         <tbody>
-          {tbody.map((tr, index) => (
+          {listTransactions?.map((tr, index) => (
             <tr key={index}>
-              {tr.map((td, index) => (
-                <td key={index}>{td}</td>
-              ))}
+              {Object.entries(tr).map(([key, value]) =>
+                key === "type" || key === "id" ? null : (
+                  <td key={key}>{value}</td>
+                )
+              )}
             </tr>
           ))}
         </tbody>

@@ -18,17 +18,17 @@ const ExpenseTableStyle = styled.main`
     tbody {
       padding: 10px;
       tr {
-        &:nth-child(even){
+        &:nth-child(even) {
           background-color: #d1d1d1;
         }
-        &:nth-child(odd){
+        &:nth-child(odd) {
           background-color: #a2a2a2;
         }
         &:hover {
           background-color: #aa9619;
           cursor: pointer;
         }
-        td{
+        td {
           padding: 10px;
         }
       }
@@ -36,13 +36,11 @@ const ExpenseTableStyle = styled.main`
   }
 `;
 
-const thead = ["Valor", "Fecha", "Tipo", "Concepto"];
-
 export const ExpenseTable = () => {
   return (
     <ExpenseTableStyle>
       <h1>Tabla Gastos</h1>
-      <Table thead={thead} tbody={entry} />
+      <Table listTransactions={[]} />
     </ExpenseTableStyle>
   );
 };
