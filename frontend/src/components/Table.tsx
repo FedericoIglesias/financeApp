@@ -8,18 +8,16 @@ export const Table = ({
   if (listTransactions.length == 0) {
     return <h1>There are no transactions</h1>;
   }
-
+  const head = Object.keys(listTransactions[0]);
   return (
     <>
       <table>
         <thead>
-          {listTransactions?.map((tr, index) => (
-            <tr key={index}>
-              {Object.entries(tr).map(([key]) =>
-                key === "type" || key === "id" ? null : <td key={key}>{key}</td>
-              )}
-            </tr>
-          ))}
+          <tr>
+            {head.map((h, index) =>
+              h === "type" || h === "id" ? null : <td>{h}</td>
+            )}
+          </tr>
         </thead>
         <tbody>
           {listTransactions?.map((tr, index) => (

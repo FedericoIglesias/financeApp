@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Table } from "../components/Table";
-import entry from "../data/entry.json";
+import { model } from "../../wailsjs/go/models";
+import { ReadAllExpenses } from "../../wailsjs/go/main/App";
 
 const ExpenseTableStyle = styled.main`
   display: flex;
@@ -11,9 +12,12 @@ const ExpenseTableStyle = styled.main`
   }
   Table {
     margin-top: 20px;
+    text-align: center;
     thead {
       background-color: #84b5c6;
-      padding: 10px;
+      td {
+        padding: 10px;
+      }
     }
     tbody {
       padding: 10px;
@@ -36,11 +40,16 @@ const ExpenseTableStyle = styled.main`
   }
 `;
 
+let listTransactions: model.Transaction[] = [];
+ReadAllExpenses().then((res) => {
+  listTransactions = res;
+});
+
 export const ExpenseTable = () => {
   return (
     <ExpenseTableStyle>
       <h1>Tabla Gastos</h1>
-      <Table listTransactions={[]} />
+      <Table listTransactions={listTransactions} />
     </ExpenseTableStyle>
   );
 };

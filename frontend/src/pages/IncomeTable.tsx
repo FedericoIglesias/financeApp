@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Table } from "../components/Table";
-import entry from "../data/entry.json";
 import { ReadAllIncomes } from "../../wailsjs/go/main/App";
 import { model } from "../../wailsjs/go/models";
 import { useEffect } from "react";
