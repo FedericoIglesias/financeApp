@@ -29,7 +29,13 @@ func main() {
 			app,
 		},
 	})
-
+	// app.RegisterTransaction(&model.Transaction{
+	// 	ID:          "1",
+	// 	Type:        "income",
+	// 	Amount:      "100",
+	// 	Date:        "2021-01-01",
+	// 	Description: "Test transaction",
+	// })
 	if err != nil {
 		println("Error:", err.Error())
 	}
