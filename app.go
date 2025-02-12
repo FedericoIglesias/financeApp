@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"financeApp/model"
 	"fmt"
 
@@ -43,4 +44,31 @@ func (a *App) RegisterTransaction(transaction model.Transaction) (bool, error) {
 	}
 
 	return true, nil
+}
+
+func (a *App) ReadAllIncomes() ([]model.Transaction, error) {
+	driver, err := a.initDB()
+	if err != nil {
+		return nil, err
+	}
+
+	transactions, err := driver.ReadAll("transactions")
+	if err != nil {
+		return nil, fmt.Errorf("error reading transactions: %v", err)
+	}
+
+	var incomes []model.Transaction
+
+	for _, transaction := range transactions {
+		var t model.Transaction
+		err := json.Unmarshal([]byte(transaction), &t)
+		if err != nil {
+			return nil, fmt.Errorf("error unmarshalling transaction: %v", err)
+		}
+		if t.Type == "income" {
+			incomes = append(incomes, t)
+		}
+	}
+
+	return incomes, nil
 }
